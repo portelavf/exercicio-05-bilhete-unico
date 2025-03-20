@@ -1,3 +1,5 @@
+package exercicio_bilhete_unico;
+
 import java.util.Random;
 
 public class BilheteUnico {
@@ -9,7 +11,7 @@ public class BilheteUnico {
     public BilheteUnico(long cpf, String nome, String perfil) {
         Random random = new Random();
         numero = random.nextLong(1000, 10000);
-        usuario = new Usuario();
+        usuario = new Usuario(cpf,nome,perfil);
     }
 
     //metodo para carregar o bilhete
@@ -35,7 +37,8 @@ public class BilheteUnico {
         }
         if(saldo>=debito){
             saldo-=debito;
+            return "Catraca liberada!";
         }
-        return "Catraca liberada!";
+        return "Saldo insuficiente!";
     }
 }
